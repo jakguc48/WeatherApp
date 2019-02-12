@@ -4,32 +4,43 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeatherApp.View"
+        xmlns:vm="clr-namespace:WeatherApp.ViewModel"
         mc:Ignorable="d"
         Title="WeatherWindow" Height="450" Width="500">
-    <Grid>
-        <StackPanel Margin="10">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="BlueViolet"/>
+        </Style>
+        <vm:WeatherVm x:Key="Vm"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource Vm}">
+        <StackPanel Margin="10" DataContext="{Binding Weather}">
             <TextBox/>
             <TextBlock
-                Text="Paris"
+                Text="{Binding WeatherIcon}"
                 Margin="0 20 0 0"
                 FontSize="35"
                 FontWeight="Bold"/>
             <TextBlock
-                Text="21 C"
+                Text="{Binding LocalObservationDateTime}"
+                Margin="0 20 0 0"
+                FontSize="25"
+                FontWeight="Bold"/>
+            <TextBlock
+                Text="{Binding Temperature.Metric.Value}"
                 FontSize="60"
                 FontWeight="Bold"
                 Margin="0 30 0 0"/>
             <TextBlock
-                Text="Sunny"
+                Text="{Binding WeatherText}"
                 FontSize="25"
                 FontWeight="DemiBold"/>
-            <TextBlock Text="UV 7"
+            <TextBlock Text="{Binding IsDayTime}"
                        Margin="0 50 0 0" 
                        FontSize="17"/>
-            <TextBlock Text="Prec 75%"
+            <TextBlock Text="{Binding Link}"
                        FontSize="17"/>
-            <TextBlock Text="NE 9 Kmph"
-                       FontSize="17"/>
+
 
         </StackPanel>
     </Grid>
