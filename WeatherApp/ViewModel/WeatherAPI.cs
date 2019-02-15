@@ -14,13 +14,13 @@ namespace WeatherApp.ViewModel
         public const string API_KEY = "e65CHkbxGFgnn0IWHVL5a6BVYC6nYVb4";
 
         public const string BASE_URL =
-            "http://dataservice.accuweather.com/currentconditions/v1/{0}?apikey={1}";
+            "http://dataservice.accuweather.com/forecasts/v1/daily/5day/{0}?apikey={1}&details=false&metric=true";
 
-        public async Task<AccuWeather> GetWeatherInformationAsync (string cityname)
+        public async Task<AccuWeather> GetWeatherInformationAsync (string locationKey)
         {
             AccuWeather result = new AccuWeather();
 
-            string url = String.Format(BASE_URL, API_KEY, cityname);
+            string url = String.Format(BASE_URL, locationKey, API_KEY);
 
             using (HttpClient client = new HttpClient())
             {

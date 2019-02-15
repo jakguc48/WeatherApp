@@ -10,186 +10,323 @@ using WeatherApp.Annotations;
 
 namespace WeatherApp.Model
 {
-    public class Metric : INotifyPropertyChanged
+    //public class Metric : INotifyPropertyChanged
+    //{
+    //    private double _value;
+
+    //    public double Value
+    //    {
+    //        get { return _value; }
+    //        set
+    //        {
+    //            this._value = value;
+    //            OnPropertyChanged(nameof(Value));
+    //        }
+    //    }
+
+    //    private string _unit;
+
+    //    public string Unit
+    //    {
+    //        get { return _unit; }
+    //        set
+    //        {
+    //            this._unit = value;
+    //            OnPropertyChanged(nameof(Unit));
+    //        }
+    //    }
+
+    //    private int _unitType;
+
+    //    public int UnitType
+    //    {
+    //        get { return _unitType; }
+    //        set
+    //        {
+    //            this._unitType = value;
+    //            OnPropertyChanged(nameof(UnitType));
+    //        }
+    //    }
+
+    //    public event PropertyChangedEventHandler PropertyChanged;
+
+    //    [NotifyPropertyChangedInvocator]
+    //    protected virtual void OnPropertyChanged(string propertyName)
+    //    {
+    //        if (PropertyChanged != null)
+    //        {
+    //            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+    //        }
+    //    }
+    //}
+
+
+    //public class Temperature : INotifyPropertyChanged
+    //{
+    //    private Metric _metric;
+
+    //    public Metric Metric
+    //    {
+    //        get { return _metric; }
+    //        set
+    //        {
+    //            this._metric = value;
+    //            OnPropertyChanged(nameof(Metric));
+    //        }
+    //    }
+
+    //    public event PropertyChangedEventHandler PropertyChanged;
+
+    //    [NotifyPropertyChangedInvocator]
+    //    protected virtual void OnPropertyChanged(string propertyName)
+    //    {
+    //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    //    }
+
+    //}
+
+    //public class AccuWeather : INotifyPropertyChanged
+    //{
+    //    private DateTime _localObservationDateTime;
+
+    //    public DateTime LocalObservationDateTime
+    //    {
+    //        get { return _localObservationDateTime; }
+    //        set
+    //        {
+    //            this._localObservationDateTime = value;
+    //            OnPropertyChanged(nameof(LocalObservationDateTime));
+    //        }
+    //    }
+
+    //    private string _weatherText;
+
+    //    public string WeatherText
+    //    {
+    //        get { return _weatherText; }
+    //        set
+    //        {
+    //            _weatherText = value;
+    //            OnPropertyChanged(nameof(WeatherText));
+    //        }
+    //    }
+
+    //    private int _weatherIcon;
+
+    //    public int WeatherIcon
+    //    {
+    //        get { return _weatherIcon; }
+    //        set
+    //        {
+    //            _weatherIcon = value;
+    //            OnPropertyChanged(nameof(WeatherIcon));
+    //        }
+    //    }
+
+    //    private bool _isDayTime;
+
+    //    public bool IsDayTime
+    //    {
+    //        get { return _isDayTime; }
+    //        set
+    //        {
+    //            _isDayTime = value; 
+    //            OnPropertyChanged(nameof(IsDayTime));
+    //        }
+    //    }
+
+    //    private Temperature _temperature;
+
+    //    public Temperature Temperature
+    //    {
+    //        get { return _temperature; }
+    //        set
+    //        {
+    //            _temperature = value;
+    //            OnPropertyChanged(nameof(Temperature));
+    //        }
+    //    }
+
+    //    private string _link;
+
+    //    public string Link
+    //    {
+    //        get { return _link; }
+    //        set
+    //        {
+    //            _link = value;
+    //            OnPropertyChanged(nameof(Link));
+    //        }
+    //    }
+
+    //    public event PropertyChangedEventHandler PropertyChanged;
+
+    //    public AccuWeather()
+    //    {
+    //        if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+    //        {
+    //            WeatherIcon = 1111;
+    //            LocalObservationDateTime = DateTime.Now;
+    //            Temperature = new Temperature()
+    //            {
+    //                Metric = new Metric()
+    //                {
+    //                    Value = 12,
+    //                    Unit = "C",
+    //                    UnitType = 22222
+    //                }
+
+    //            };
+    //            WeatherText = "Sunny/Windy";
+    //            IsDayTime = true;
+    //            Link = "linklinklinklink";
+
+    //        }
+           
+
+    //    }
+
+    //    [NotifyPropertyChangedInvocator]
+    //    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    //    {
+    //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
+
+
+
+    public class Minimum
     {
-        private double _value;
-
-        public double Value
-        {
-            get { return _value; }
-            set
-            {
-                this._value = value;
-                OnPropertyChanged(nameof(Value));
-            }
-        }
-
-        private string _unit;
-
-        public string Unit
-        {
-            get { return _unit; }
-            set
-            {
-                this._unit = value;
-                OnPropertyChanged(nameof(Unit));
-            }
-        }
-
-        private int _unitType;
-
-        public int UnitType
-        {
-            get { return _unitType; }
-            set
-            {
-                this._unitType = value;
-                OnPropertyChanged(nameof(UnitType));
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
+        public double Value { get; set; }
+        public string Unit { get; set; }
+        public int UnitType { get; set; }
     }
 
-
-    public class Temperature : INotifyPropertyChanged
+    public class Maximum
     {
-        private Metric _metric;
-
-        public Metric Metric
-        {
-            get { return _metric; }
-            set
-            {
-                this._metric = value;
-                OnPropertyChanged(nameof(Metric));
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
+        public double Value { get; set; }
+        public string Unit { get; set; }
+        public int UnitType { get; set; }
     }
 
-    public class AccuWeather : INotifyPropertyChanged
+    public class Temperature
     {
-        private DateTime _localObservationDateTime;
+        public Minimum Minimum { get; set; }
+        public Maximum Maximum { get; set; }
+    }
 
-        public DateTime LocalObservationDateTime
+    public class Day
+    {
+        public int Icon { get; set; }
+        public string IconPhrase { get; set; }
+    }
+
+    public class Night
+    {
+        public int Icon { get; set; }
+        public string IconPhrase { get; set; }
+    }
+
+    public class DailyForecast : INotifyPropertyChanged
+    {
+
+        private DateTime date;
+
+        public DateTime Date
         {
-            get { return _localObservationDateTime; }
+            get { return date; }
             set
             {
-                this._localObservationDateTime = value;
-                OnPropertyChanged(nameof(LocalObservationDateTime));
+                date = value;
+                OnPropertyChanged("Date");
             }
         }
 
-        private string _weatherText;
-
-        public string WeatherText
-        {
-            get { return _weatherText; }
-            set
-            {
-                _weatherText = value;
-                OnPropertyChanged(nameof(WeatherText));
-            }
-        }
-
-        private int _weatherIcon;
-
-        public int WeatherIcon
-        {
-            get { return _weatherIcon; }
-            set
-            {
-                _weatherIcon = value;
-                OnPropertyChanged(nameof(WeatherIcon));
-            }
-        }
-
-        private bool _isDayTime;
-
-        public bool IsDayTime
-        {
-            get { return _isDayTime; }
-            set
-            {
-                _isDayTime = value; 
-                OnPropertyChanged(nameof(IsDayTime));
-            }
-        }
-
-        private Temperature _temperature;
+        private Temperature temperature;
 
         public Temperature Temperature
         {
-            get { return _temperature; }
+            get { return temperature; }
             set
             {
-                _temperature = value;
-                OnPropertyChanged(nameof(Temperature));
+                temperature = value;
+                OnPropertyChanged("Temperature");
             }
         }
 
-        private string _link;
+        private Day day;
 
-        public string Link
+        public Day Day
         {
-            get { return _link; }
+            get { return day; }
             set
             {
-                _link = value;
-                OnPropertyChanged(nameof(Link));
+                day = value;
+                OnPropertyChanged("Day");
             }
         }
+
+        private Night night;
+
+        public Night Night
+        {
+            get { return night; }
+            set
+            {
+                night = value;
+                OnPropertyChanged("Night");
+            }
+        }
+
+
+        public IList<string> Sources { get; set; }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public AccuWeather()
-        {
-            if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
-            {
-                WeatherIcon = 1111;
-                LocalObservationDateTime = DateTime.Now;
-                Temperature = new Temperature()
-                {
-                    Metric = new Metric()
-                    {
-                        Value = 12,
-                        Unit = "C",
-                        UnitType = 22222
-                    }
-
-                };
-                WeatherText = "Sunny/Windy";
-                IsDayTime = true;
-                Link = "linklinklinklink";
-
-            }
-           
-
-        }
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+    }
+
+    public class AccuWeather
+    {
+        public IList<DailyForecast> DailyForecasts { get; set; }
+
+
+        public AccuWeather()
+        {
+            if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+            {
+                DailyForecasts  = new List<DailyForecast>();
+                for (int i = 0; i < 3; i++)
+                {
+                    DailyForecast dailyForecast = new DailyForecast
+                    {
+                        Date = DateTime.Now.AddDays(-i),
+                        Temperature = new Temperature
+                        {
+                            Maximum = new Maximum
+                            {
+                                Value = 21 + i
+                            },
+                            Minimum = new Minimum
+                            {
+                                Value = 5-i
+                            }
+
+                        }
+                    };
+                    DailyForecasts.Add(dailyForecast);
+                }
+               
+               
+            }
+
+
         }
     }
 
